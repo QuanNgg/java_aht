@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<head>
+    <title>Spring Boot Thymeleaf example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="alert alert-success">
+    <strong>Spring Boot Thymeleaf Crud</strong> - csdcodes.net
+</div>
+	<!-- create navigation bar ( header) -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" th:href="@{/}">JAVA AHT</a>
+			</div>
+		</div>
+	</nav>
+
+<br>
+<br>
+<div class="container">
+    <h5>UPDATE</h5>
+	<div th:if="${param.success}">
+		<div class="alert alert-info">You've successfully update!</div>
+	</div>	
+    <form action="#" th:action="@{/update}" method="post" th:object="${user}">
+        <input type="hidden" class="form-control" id="id" th:field="*{id}"/>
+        First Name:<br/>
+        <input type="text" class="form-control" id="firstName" th:field="*{firstName}" placeholder="First Name"/>
+        <br/>
+        Last Name:<br/>
+        <input type="text" class="form-control" id="lastName" th:field="*{lastName}" placeholder="Last Name"/>
+        <br/>
+        Email:<br/>
+        <input type="text" class="form-control" id="email" th:field="*{email}"  placeholder="Email"/>
+        <br/>
+        <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+</div>
+</body>
+</html>
